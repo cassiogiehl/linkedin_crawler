@@ -1,0 +1,3 @@
+from linkedin_job_scraper import LinkedinJobScraper
+
+LinkedinJobScraper()
