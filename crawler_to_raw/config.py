@@ -24,13 +24,6 @@ class Utils:
 
         return json_data
 
-class Secrets(Utils):
-    def __init__(self) -> None:
-        super().__init__("secrets")
-
-    def read(self):
-        return self.get_json()
-
 class Config(Utils):
     def __init__(self) -> None:
         super().__init__("config")

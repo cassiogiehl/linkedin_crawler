@@ -1,3 +1,5 @@
 {
-    "url_search": "https://www.linkedin.com/login"
+    "job_description": "engenheiro_machine_learning",
+    "source": "https://www.linkedin.com/jobs/search?keywords=engenheiro%20de%20machine%20learning&amp;origin=BLENDED_SEARCH_RESULT_CARD_NAVIGATION",
+    "sink": "data-lakedin-raw/"
 }

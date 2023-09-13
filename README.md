@@ -9,8 +9,5 @@ Crawler to get jobs from linkedin
 
 ``$ pip3 install requirements.txt``
 
-### set credentials from linkedin
-``$ mv secrets-example.json secrets.json``
-
 ### run app
-``$ python3 crawler/linkedin_job_scraper.py``
+``$ python3 crawler_to_raw/linkedin_job_scraper.py``

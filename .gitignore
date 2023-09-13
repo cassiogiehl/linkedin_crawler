@@ -1,3 +1,5 @@
 venv_*/
 secrets.json
 *.log
+data-*/
+.DS_Store
