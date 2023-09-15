@@ -15,7 +15,7 @@ class Utils:
         parent_dir = os.path.dirname(current_dir)
 
         sys.path.append(parent_dir)
-        full_path = parent_dir + "/" + self.filename + ".json"
+        full_path = f"{parent_dir}/{self.filename}.json"
 
         print("Carregando arquivo de configuração: ", full_path, "\n")
 

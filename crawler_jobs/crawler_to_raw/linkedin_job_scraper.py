@@ -1,8 +1,11 @@
-import os
+import os, sys
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from crawler import Crawler
-from config import Config
 from webdriver import Driver
+from utils.config import Config
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 from datetime import date
@@ -17,19 +20,20 @@ class LinkedinJobCrawler(Crawler):
         ) -> None:
         super().__init__(driver, url)
 
-        self.html = ""
-        self.sink = sink
+        self.html: BeautifulSoup = ""
+        self.sink: str = sink
 
     def get_job_details(self):
+
         print("Pesquisa executada com sucesso!")
 
         page_html =  self.driver.page_source
         self.html = BeautifulSoup(page_html)
 
-    def save(self):
-        if self.html is "":
+        if self.html == "":
             self.html = "nenhum dado foi coletado!"
-            print(self.html)
+
+    def save(self):
 
         if not os.path.exists(self.sink):
             os.makedirs(self.sink)
@@ -41,6 +45,7 @@ class LinkedinJobCrawler(Crawler):
         sink = open(self.sink + "search.html", "w")
         sink.write(str(self.html))
         print(f"arquivo html escrito com sucesso em {self.sink}")
+
 
 def get_driver():
 
