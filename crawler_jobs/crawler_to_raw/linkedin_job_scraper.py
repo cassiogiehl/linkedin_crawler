@@ -47,6 +47,8 @@ class LinkedinJobCrawler(Crawler):
         print(f"arquivo html escrito com sucesso em {self.sink}")
 
 
+print("Iniciando com a coleta dos dados via crawler")
+
 def get_driver():
 
     driver = Driver()
@@ -70,8 +72,8 @@ dt_ref = get_dt_ref()
 
 search_by_job_description = LinkedinJobCrawler(
     driver = driver,
-    url = config["source"],
-    sink = config["sink"] + config["job_description"] + "/" + dt_ref + "/"
+    url = config["crawler_to_raw"]["linkedin_job_scraper"]["source"],
+    sink = config["crawler_to_raw"]["linkedin_job_scraper"]["path"] + config["job_description"] + "/html_search/" + dt_ref + "/"
 )
 search_by_job_description.get_content_from_url()
 search_by_job_description.get_job_details()

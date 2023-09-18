@@ -1,5 +1,21 @@
 {
-    "job_description": "engenheiro-machine-learning",
-    "source": "https://www.linkedin.com/jobs/search?keywords=engenheiro%20de%20machine%20learning&amp;origin=BLENDED_SEARCH_RESULT_CARD_NAVIGATION",
-    "sink": "data-lakedin-raw/"
+    "crawler_to_raw": {
+        "linkedin_job_scraper": {
+            "job_description": "engenheiro-machine-learning",
+            "source": "https://www.linkedin.com/jobs/search?keywords=engenheiro%20de%20machine%20learning&amp;origin=BLENDED_SEARCH_RESULT_CARD_NAVIGATION",
+            "path": "data-lakedin-raw/"
+        }
+    },
+    "raw_to_staged": {
+        "get_link_job": {
+            "source": "data-lakedin-raw/engenheiro-machine-learning/html_search/",
+            "sink": "data-lakedin-staged/engenheiro-machine-learning/url_job_intern/"
+        }
+    },
+    "staged_to_curated": {
+        "get_job_details": {
+            "source": "data-lakedin-staged/engenheiro-machine-learning/url_job_intern/",
+            "sink": "data-lakedin-curated/engenheiro-machine-learning/details_url_job_intern/"
+        }
+    }
 }
